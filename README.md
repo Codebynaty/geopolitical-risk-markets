@@ -1,10 +1,10 @@
 # 📊 Análise de Risco Geopolítico × Mercado
 
-Ferramenta em Python que investiga **como eventos geopolíticos afetam o preço de ativos** — medindo variação de preço e volatilidade em torno de cada evento. Projeto pessoal de análise exploratória de dados aplicada ao mercado financeiro.
+Ferramenta em Python que investiga **como eventos geopolíticos afetam o preço de ativos**, medindo variação de preço e volatilidade em torno de cada evento. Projeto pessoal de análise exploratória de dados aplicada ao mercado financeiro.
 
 ## 🎯 O problema
 
-Eventos geopolíticos (guerras, sanções, decisões da OPEP) movem os mercados — mas *quanto*, e *quando*? Este projeto responde isso de forma quantitativa: pega o preço histórico de um ativo, marca as datas de eventos relevantes e mede o impacto de cada um em preço e em volatilidade.
+Eventos geopolíticos (guerras, sanções, decisões da OPEP) movem os mercados mas *quanto*, e *quando*? Este projeto responde isso de forma quantitativa: pega o preço histórico de um ativo, marca as datas de eventos relevantes e mede o impacto de cada um em preço e em volatilidade.
 
 ## 🔍 O que ele faz
 
@@ -17,7 +17,7 @@ Eventos geopolíticos (guerras, sanções, decisões da OPEP) movem os mercados 
 
 ## 💡 Exemplo de insight
 
-Analisando o Brent em torno da invasão da Ucrânia (24/02/2022): o preço subiu **+17,5%**, mas o mais revelador foi a **volatilidade quase triplicar** (de 2,2% para 6,0% ao dia) — mostrando que o choque geopolítico importou tanto pela *incerteza* criada quanto pela direção do preço. Já o embargo da UE, por já estar "precificado" pelo mercado, teve impacto muito menor: o conceito de *"buy the rumor, sell the news"* aparecendo nos dados.
+Analisando o Brent em torno da invasão da Ucrânia (24/02/2022): o preço subiu **+17,5%**, mas o mais revelador foi a **volatilidade quase triplicar** (de 2,2% para 6,0% ao dia), mostrando que o choque geopolítico importou tanto pela *incerteza* criada quanto pela direção do preço. Já o embargo da UE, por já estar "precificado" pelo mercado, teve impacto muito menor: o conceito de *"buy the rumor, sell the news"* aparecendo nos dados.
 
 ## 🛠️ Tecnologias
 
