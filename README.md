@@ -1,27 +1,42 @@
 # 📊 Análise de Risco Geopolítico × Mercado
 
-Ferramenta em Python que investiga **como eventos geopolíticos afetam o preço de ativos**, medindo variação de preço e volatilidade em torno de cada evento. Projeto pessoal de análise exploratória de dados aplicada ao mercado financeiro.
+Ferramenta em Python que investiga **como eventos geopolíticos afetam o preço de ativos** — medindo variação de preço e mudança de volatilidade em torno de cada evento, e comparando o impacto de um mesmo choque sobre ativos diferentes.
+
+Projeto pessoal de análise exploratória de dados (EDA) aplicada ao mercado financeiro.
 
 ## 🎯 O problema
 
-Eventos geopolíticos (guerras, sanções, decisões da OPEP) movem os mercados mas *quanto*, e *quando*? Este projeto responde isso de forma quantitativa: pega o preço histórico de um ativo, marca as datas de eventos relevantes e mede o impacto de cada um em preço e em volatilidade.
+Eventos geopolíticos (guerras, sanções, crises de oferta) movem os mercados — mas *quanto*, *quando* e *em quais ativos*? Este projeto responde isso de forma quantitativa: pega o preço histórico de um ativo, marca as datas de eventos relevantes e mede o impacto de cada um em preço e em volatilidade.
 
 ## 🔍 O que ele faz
 
-- Baixa preços históricos de ativos (petróleo Brent, dólar, ações) via `yfinance`
+- Baixa preços históricos de ativos via `yfinance`
 - Marca eventos geopolíticos num gráfico de preço
-- Calcula, para cada evento:
-  - **Variação %** do preço médio antes vs. depois (janela configurável)
-  - **Volatilidade** (desvio-padrão dos retornos) antes vs. depois
-- Gera um gráfico e uma tabela-resumo do impacto
+- Para cada evento, calcula **variação %** do preço e **mudança de volatilidade** (antes vs. depois)
+- **Compara vários ativos** (petróleo, dólar/real, ouro, Ibovespa) sob o mesmo choque, revelando quem sente mais e quem funciona como "porto seguro"
 
-## 💡 Exemplo de insight
+## 📌 Caso de estudo: a crise do Estreito de Ormuz (2026)
 
-Analisando o Brent em torno da invasão da Ucrânia (24/02/2022): o preço subiu **+17,5%**, mas o mais revelador foi a **volatilidade quase triplicar** (de 2,2% para 6,0% ao dia), mostrando que o choque geopolítico importou tanto pela *incerteza* criada quanto pela direção do preço. Já o embargo da UE, por já estar "precificado" pelo mercado, teve impacto muito menor: o conceito de *"buy the rumor, sell the news"* aparecendo nos dados.
+O petróleo em 2026 girou em torno do Estreito de Ormuz — ponto por onde passa boa parte do petróleo do mundo. O projeto analisa quatro marcos:
+
+| Data | Evento |
+|---|---|
+| 28/02/2026 | Ataques EUA-Israel ao Irã; fechamento de Ormuz (Brent chegou a ~US$120) |
+| 17/06/2026 | MoU de Islamabad (trégua) |
+| 17/08/2026 | Expiração do MoU; reescalada e novas sanções |
+| 24/09/2026 | EUA-Irã negociam reabertura |
+
+## 💡 Insights que a análise revela
+
+- **Choque ≠ só direção:** no fechamento de Ormuz, não foi só o preço que subiu — a **volatilidade disparou**, mostrando que o choque importou tanto pela *incerteza* criada quanto pela direção.
+- **Fadiga geopolítica:** eventos sucessivos e esperados (como a expiração do MoU) tendem a mexer menos no preço do que o choque inicial surpresa — o mercado "aprende" e reage de forma mais gradual.
+- **Porto seguro:** a comparação entre ativos mostra o padrão clássico de crise — petróleo e ouro reagindo diferente do real e da bolsa.
 
 ## 🛠️ Tecnologias
 
-`Python` · `pandas` · `yfinance` · `matplotlib`
+`Python` · `pandas` · `numpy` · `yfinance` · `matplotlib`
+
+Código organizado em funções reutilizáveis (download, cálculo de impacto, comparação entre ativos, visualização).
 
 ## ▶️ Como rodar
 
@@ -30,12 +45,15 @@ pip install -r requirements.txt
 python brent_geopolitica.py
 ```
 
-Edite os parâmetros no topo do script (`TICKER`, `START`, `END`, `EVENTOS`) para analisar outros ativos e eventos.
+Edite os parâmetros no topo do script (`ATIVO_PRINCIPAL`, `ATIVOS_COMPARACAO`, `EVENTOS`, `JANELA`) para analisar outros ativos e eventos.
 
-## 📈 Resultado
+## 📈 Saída
 
-O script gera `brent_geopolitica.png` (preço + eventos) e imprime a tabela de impacto de cada evento no terminal.
+- `brent_geopolitica.png` — gráfico do preço com os eventos marcados
+- Tabela do impacto de cada evento sobre o Brent (variação % e volatilidade)
+- Tabela comparando o impacto do choque principal entre vários ativos
 
 ---
 
-*Projeto desenvolvido por Natalia Alcantara como estudo de análise de dados aplicada a mercado.*
+*Projeto desenvolvido por Natalia Alcantara como estudo de análise de dados aplicada ao mercado financeiro.*
+
